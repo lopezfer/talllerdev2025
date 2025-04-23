@@ -1,0 +1,78 @@
+
+############# BASÍCOS #################
+
+# Crear proyecto: ionic start 'nombre' blank --type=angular
+# Instalar dependencias: npm install
+# Correr el proyecto en browser: ionic serve
+
+##########  CREAR ARCHIVOS ##################
+
+# Crear una página: ionic g page 'ruta'/'nombre'
+# Crear una página: ionic g page pages/home
+
+# Crear una componente: ionic g component 'ruta'/'nombre'
+# Crear una componente: ionic g component components/avatar
+
+# Crear una módulo: ionic g module 'ruta'/'nombre'
+# Crear una módulo: ionic g module modules/shared
+
+# Crear una servicio: ionic g service 'ruta'/'nombre'
+# Crear una servicio: ionic g service services/shared
+
+ionic g service services/database
+ionic g service services/auth
+ionic g service services/utilities
+
+##########  ALIMENTAR SHARED ##################
+# 1) crear el módulo shared
+# 2) agregado mis componentes dentro del decorador NgModule, en los arrays exports, y declarations
+// import { AvatarComponent } from 'src/app/components/avatar/avatar.component';
+// @NgModule({
+//   exports:[AvatarComponent, CardComponent],
+//   declarations: [AvatarComponent, CardComponent],
+//   imports: [
+//     CommonModule
+//   ]
+// })
+# 3) agregar dentro del decorador component del componente standalone: false
+
+// @Component({
+//   selector: 'app-avatar',
+//   templateUrl: './avatar.component.html',
+//   styleUrls: ['./avatar.component.scss'],
+//   standalone: false
+// })
+
+##########  IMPORTAR SHARED ##################
+# 1) agregar el módulo dentro del decorador NgModules del módulo objetivo
+# 2) por ejemplo dentro de login.module.ts
+
+// import { SharedModule } from 'src/app/modules/shared/shared.module';
+// @NgModule({
+//   imports: [
+//     CommonModule,
+//     FormsModule,
+//     IonicModule,
+//     SharedModule,  <---- AQUÍ
+//     LoginPageRoutingModule
+//   ],
+//   declarations: [LoginPage]
+// })
+
+
+####### CUSTOMIZACION DE VARIABLE
+ https://ionicframework.com/docs/theming/advanced
+
+
+
+########### FIREBASE #################
+
+npm install firebase
+npm install @angular/fire
+
+
+npm audit-fix
+npm install @angular/fire --legacy-peer-deps
+
+
+
