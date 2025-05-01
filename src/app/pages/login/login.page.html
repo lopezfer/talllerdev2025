@@ -4,37 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <h1>{{this.saludo}}</h1>
-  <app-card (click)="this.nuevoLibro.name='nuevo titulo'" [title]="this.nuevoLibro.name"
-    [author]="this.nuevoLibro.author"></app-card>
+<ion-content>
 
 
-
-
-
-
-  <ion-button color="turquesa" fill="clear" type="submit">Clear</ion-button>
-  <ion-button color="turquesa" fill="outline" href="/home">Outline</ion-button>
-  <ion-button color="turquesa" fill="solid" routerLink="/home">Solid</ion-button>
-
-
-
-
-
-  <ion-card color="secondary">
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content color="secondary">
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card>
-  <!--   <app-avatar></app-avatar>
-  <ion-button>Boton de ionic</ion-button>
-  <ion-datetime locale="es-ES"></ion-datetime> -->
 </ion-content>
+
 <app-menu></app-menu>

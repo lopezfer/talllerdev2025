@@ -1,13 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>Crear cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <small>(Formulario de registro con ReactiveForms)</small>
+        <h1>Registro</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <ion-input formControlName="name" label="Nombre *" type="text" fill="outline" mode="md"></ion-input>
+          <ion-text *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.valid === false">
+            <p *ngIf="registerForm.get('name')?.errors?.['required']">El nombre es requerido</p>
+            <p *ngIf="registerForm.get('name')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres</p>
+          </ion-text>
+          <ion-input formControlName="email" label="Email *" type="email" fill="outline" mode="md"></ion-input>
+          <ion-text *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.valid === false">
+            <p *ngIf="registerForm.get('email')?.errors?.['required']">El Email es requerido</p>
+            <p *ngIf="registerForm.get('email')?.valid===false">Email invalido</p>
+          </ion-text>
+          <ion-input formControlName="phone" label="Teléfono" type="number" fill="outline" mode="md"></ion-input>
+          <ion-input formControlName="password" label="Contraseña *" type="password" fill="outline"
+            mode="md"></ion-input>
+          <ion-text *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.valid === false">
+            <p *ngIf="registerForm.get('password')?.errors?.['required']">El Password es requerido</p>
+          </ion-text>
+          <ion-button type="submit">Registrar usuario</ion-button>
+        </form>
+
+      </ion-col>
+
+      <ion-col size="12">
+        <small>(Ejemplo de two way binding, con un input)</small>
+        <h1>Solo un campo</h1>
+        <ion-input [(ngModel)]="nombre" #nombreInput="ngModel" mode="md" fill="outline" required="true" minlength="3"
+          labelPlacement="floating" label="Nombre"></ion-input>
+        <p>
+          <strong>Valor: {{nombre}}</strong>
+        </p>
+        <p>
+          <strong>Valor desde model: {{nombreInput.value}}</strong>
+        </p>
+        <p>
+          <strong>Dirty: {{nombreInput.dirty}}</strong>
+        </p>
+        <p>
+          <strong>Touched: {{nombreInput.touched}}</strong>
+        </p>
+        <p>
+          <strong>Valid: {{nombreInput.valid}}</strong>
+        </p>
+        <p>
+          <strong>Errors: {{nombreInput.errors | json}}</strong>
+        </p>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
