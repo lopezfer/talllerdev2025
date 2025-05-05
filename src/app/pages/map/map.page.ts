@@ -15,18 +15,16 @@ export class MapPage implements OnInit {
   constructor(
     public db: DatabaseService
   ) {
-    //this.loadRestaurantes()
-
     this.db.fetchFirestoreCollection('restaurantes')
       .subscribe((data: any) => {
         if (data.length > 0) {
           this.items = data
         }
       })
-
   }
 
   loadRestaurantes() {
+    ///  crea y carga restaurantes en firestore
     let restaurants = [
       { name: 'Gustu', address: 'Calle 10, Calacoto, La Paz', lat: -16.523, lng: -68.112, open: true },
       { name: 'Namas Té', address: 'Av. Montenegro, San Miguel, La Paz', lat: -16.522, lng: -68.121, open: false },
@@ -39,15 +37,18 @@ export class MapPage implements OnInit {
       { name: 'Chez Moustache', address: 'Calle Jaén, Centro, La Paz', lat: -16.497, lng: -68.136, open: true },
       { name: 'El Patio', address: 'Calle Tarija, Sopocachi, La Paz', lat: -16.507, lng: -68.122, open: true }
     ];
+    //almacena restaurantes uno por uno
     restaurants.forEach(element => {
       this.db.addFirestoreDocument('restaurantes', element)
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
+
   ngAfterViewInit(): void {
     // Delay to ensure the map is rendered after the view is initialized
-
     setTimeout(() => {
       console.log('MapPage ngOnInit');
       this.loadMap()
@@ -56,10 +57,12 @@ export class MapPage implements OnInit {
 
   loadMap() {
 
+    //crea el mapa
     this.map = L.map('map', {
       center: [-16.5, -68.15], // Coordenadas de La Paz, Bolivia
       zoom: 13
     });
+    // lee os items uno a uno y los agrega al mapa
     this.items.forEach((element: any) => {
       L.marker([element.lat, element.lng]
         , {
@@ -72,21 +75,6 @@ export class MapPage implements OnInit {
         }
       ).addTo(this.map);
     })
-
-
-    /*     L.marker([-16.5, -68.15]
-          , {
-            icon: icon({
-              iconUrl: 'assets/icon/favicon.png',
-              iconSize: [38, 38], // Tamaño del icono
-              iconAnchor: [22, 94], // Punto del icono que corresponde a las coordenadas del marcador
-              popupAnchor: [-15, -88] // Punto desde el que se abrirá el popup en relación al icono
-            })
-          }
-        ).addTo(this.map)
-          .bindPopup('¡Hola desde La Paz!')
-          .openPopup(); */
-
   }
 
 }
