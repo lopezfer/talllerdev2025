@@ -49,7 +49,9 @@
   font-family: "Spotify-Medium";
   src: url("./assets/fonts/CircularSpotifyText-Medium.otf");
 }
-
+#map {
+  height: 100vh;
+}
 h1 {
   font-family: "Spotify-Bold";
   font-size: 30px;

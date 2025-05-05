@@ -14,7 +14,7 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    // Paso 1, importar el modulo de formularios
+    // Paso 1, importar el modulo de formularios ReactiveFormsModule
     ReactiveFormsModule,
     SharedModule,
     RegisterPageRoutingModule

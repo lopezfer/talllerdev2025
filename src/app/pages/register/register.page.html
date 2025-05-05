@@ -35,7 +35,9 @@
       <ion-col size="12">
         <small>(Ejemplo de two way binding, con un input)</small>
         <h1>Solo un campo</h1>
-        <ion-input [(ngModel)]="nombre" #nombreInput="ngModel" mode="md" fill="outline" required="true" minlength="3"
+        
+        <ion-input [(ngModel)]="nombre"
+        #nombreInput="ngModel" mode="md" fill="outline" required="true" minlength="3"
           labelPlacement="floating" label="Nombre"></ion-input>
         <p>
           <strong>Valor: {{nombre}}</strong>
