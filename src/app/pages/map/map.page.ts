@@ -56,7 +56,6 @@ export class MapPage implements OnInit {
   }
 
   loadMap() {
-
     //crea el mapa
     this.map = L.map('map', {
       center: [-16.5, -68.15], // Coordenadas de La Paz, Bolivia

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy , RouterModule} from '@angular/router';
 
@@ -37,8 +37,10 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     AngularFirestoreModule,
     // Para cargar Firebase
     RouterModule,
-
-
+  ],
+  //1) paso para swiper
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
