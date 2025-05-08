@@ -27,15 +27,17 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button (click)="testDB()">Test</ion-button>
-      </ion-col></ion-row>
+        <ion-item *ngFor="let ciudad of ciudades" [href]="'/ciudad/'+ciudad.id">
+          <ion-text><h2>Ciudad: {{ciudad.name}}</h2></ion-text>
+          <ion-icon slot="end" name="chevron-forward-circle"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
     <ion-row>
       <ion-col>
-        <swiper-container
-        slides-per-view="1.2"
-        pagination="false"
-        navigation="false"
-        autoplay="true" style="height: 300px;">
+        <swiper-container slides-per-view="1.2" pagination="false" navigation="false" autoplay="true"
+          style="height: 300px;">
           <swiper-slide>
             <img style="padding: 10px;" src="../../assets/images/slide1.jpg" alt="">
           </swiper-slide>
@@ -46,7 +48,7 @@
             <img style="padding: 10px;" src="../../assets/images/slide3.jpg" alt="">
           </swiper-slide>
           <swiper-slide>
-            <img  style="padding: 10px;"src="../../assets/images/slide1.jpg" alt="">
+            <img style="padding: 10px;" src="../../assets/images/slide1.jpg" alt="">
           </swiper-slide>
         </swiper-container>
 

@@ -2,7 +2,6 @@ import { Injectable, Injector, runInInjectionContext } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore, Query } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { DocumentData } from 'firebase/firestore'; // Asegúrate de importar DocumentData
 
 @Injectable({
   providedIn: 'root'

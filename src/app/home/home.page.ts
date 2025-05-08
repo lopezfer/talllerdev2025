@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, RouterEventDetail } from '@ionic/angular';
 import { DatabaseService } from '../services/database.service';
 // PARA SWIPER
-import { register} from 'swiper/element/bundle';
+import { register } from 'swiper/element/bundle';
 register()
 
 @Component({
@@ -44,20 +44,21 @@ export class HomePage {
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name!: string;
 
+
+  ciudades: any;
   constructor(
     public modal: ModalController,
     public db: DatabaseService
   ) {
-    //  este metodo funciona
-    this.db.fetchFirestoreCollection('cities').subscribe((res: any) => {
-      console.log('Local Collection: ', res);
-    })
+    //this.loadCities();
+   this.fetchCities();
   }
 
-  testDB(){
-    //este metodo no funciona y genera error
-    this.db.fetchFirestoreCollection('cities').subscribe((res: any) => {
-      console.log('Local Collection: ', res);
+  fetchCities() {
+    this.db.fetchFirestoreCollection('cities')
+    .subscribe((res: any) => {
+      console.log('Ciudades Collection: ', res);
+      this.ciudades = res;
     })
   }
 
