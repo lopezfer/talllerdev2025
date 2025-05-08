@@ -48,9 +48,18 @@ export class HomePage {
     public modal: ModalController,
     public db: DatabaseService
   ) {
-
+    //  este metodo funciona
+    this.db.fetchFirestoreCollection('cities').subscribe((res: any) => {
+      console.log('Local Collection: ', res);
+    })
   }
 
+  testDB(){
+    //este metodo no funciona y genera error
+    this.db.fetchFirestoreCollection('cities').subscribe((res: any) => {
+      console.log('Local Collection: ', res);
+    })
+  }
 
   loadCities() {
     let listCities = [

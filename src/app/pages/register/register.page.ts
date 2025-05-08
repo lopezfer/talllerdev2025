@@ -41,9 +41,6 @@ export class RegisterPage implements OnInit {
   }
 
   register() {
-    this.db.fetchFirestoreCollection('book').subscribe((res: any) => {
-
-    })
     // aPaso 5, crear la lógica, qui viene la logica para registrar al usuario
     if (this.registerForm.valid) {
       console.log('formulario valido', this.registerForm.valid);
