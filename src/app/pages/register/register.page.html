@@ -8,20 +8,20 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12">
-        <small>(Formulario de registro con ReactiveForms)</small>
         <h1>Registro</h1>
+        <small>(Formulario de registro con ReactiveForms)</small>
         <form [formGroup]="registerForm" (ngSubmit)="register()">
-          <ion-input formControlName="name" label="Nombre *" type="text" fill="outline" mode="md"></ion-input>
+          <ion-input formControlName="name" labelPlacement="floating" label="Nombre *" type="text" fill="outline" mode="md"></ion-input>
           <ion-text *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.valid === false">
             <p *ngIf="registerForm.get('name')?.errors?.['required']">El nombre es requerido</p>
             <p *ngIf="registerForm.get('name')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres</p>
           </ion-text>
-          <ion-input formControlName="email" label="Email *" type="email" fill="outline" mode="md"></ion-input>
+          <ion-input formControlName="email" labelPlacement="floating"  label="Email *" type="email" fill="outline" mode="md"></ion-input>
           <ion-text *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.valid === false">
             <p *ngIf="registerForm.get('email')?.errors?.['required']">El Email es requerido</p>
             <p *ngIf="registerForm.get('email')?.valid===false">Email invalido</p>
           </ion-text>
-          <ion-input formControlName="phone" label="Teléfono" type="number" fill="outline" mode="md"></ion-input>
+          <ion-input formControlName="phone" labelPlacement="floating"  label="Teléfono" type="number" fill="outline" mode="md"></ion-input>
           <ion-input formControlName="password" label="Contraseña *" type="password" fill="outline"
             mode="md"></ion-input>
           <ion-text *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.valid === false">
@@ -34,8 +34,8 @@
 
       <ion-col size="12">
         <small>(Ejemplo de two way binding, con un input)</small>
-        <h1>Solo un campo</h1>
-        
+        <h1>Two Way Binding</h1>
+
         <ion-input [(ngModel)]="nombre"
         #nombreInput="ngModel" mode="md" fill="outline" required="true" minlength="3"
           labelPlacement="floating" label="Nombre"></ion-input>

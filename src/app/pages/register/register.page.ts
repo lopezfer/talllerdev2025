@@ -48,7 +48,8 @@ export class RegisterPage implements OnInit {
       this.auth.registerUser(
         this.registerForm.value.email,
         this.registerForm.value.password,
-        this.registerForm.value);
+        this.registerForm.value)
+        .then((res: any) => {console.log('usuario creado', res);});
 
     }
     else {
