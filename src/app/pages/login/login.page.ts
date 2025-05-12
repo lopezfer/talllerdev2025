@@ -13,22 +13,30 @@ interface Book {
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: false,
-}) export class LoginPage  {
+}) export class LoginPage {
 
-
+  form: FormGroup;
   // La función constructor se ejecuta al crear la clase
   constructor(
     public db: DatabaseService,
-    // Paso 2, importar el servicio de formulario
-    public formBuilder: FormBuilder,
-    //paso 6, importar el servicio de auth
     public auth: AuthService,
+    public formBuilder: FormBuilder
   ) {
-   console.log('LoginPage constructor');
+    this.form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+    })
   }
 
   // La función ngOnInit se ejecuta al inicializar la clase
   login() {
-
+    if(this.form.valid){
+      console.log('formulario valido', this.form.valid);
+      console.log('valores del formulario', this.form.value);
+      this.auth.loginUser(this.form.value.email, this.form.value.password)
+    }
+    else{
+      this.form.markAllAsTouched();
+    }
   }
 }

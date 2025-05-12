@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'ciudad/:ciudadId',
     loadChildren: () => import('./pages/ciudad/ciudad.module').then( m => m.CiudadPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({

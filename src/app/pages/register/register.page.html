@@ -10,7 +10,8 @@
       <ion-col size="12">
         <h1>Registro</h1>
         <small>(Formulario de registro con ReactiveForms)</small>
-        <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <form [formGroup]="registerForm"
+        (ngSubmit)="register()">
           <ion-input formControlName="name" labelPlacement="floating" label="Nombre *" type="text" fill="outline" mode="md"></ion-input>
           <ion-text *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.valid === false">
             <p *ngIf="registerForm.get('name')?.errors?.['required']">El nombre es requerido</p>

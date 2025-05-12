@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Bienvenido, {{auth.profile?.name}}</h1>
+        <p><strong>Teléfono:</strong> {{auth.profile?.phone}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

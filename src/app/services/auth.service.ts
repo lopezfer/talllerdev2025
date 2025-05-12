@@ -19,7 +19,13 @@ export class AuthService {
     public db: DatabaseService,
     public router: Router,
     private injector: Injector
-  ) { }
+  ) {
+    const user = localStorage.getItem('profile');
+    if(user){
+      this.profile = JSON.parse(user);
+      this.getProfile(this.profile.id);
+    }
+  }
 
   registerUser(email: string, password: string, extraData: any) {
     return runInInjectionContext(this.injector, () => {

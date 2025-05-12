@@ -5,7 +5,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Login</h1>
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <ion-input formControlName="email" labelPlacement="floating"  label="Email *" type="email" fill="outline" mode="md"></ion-input>
+          <ion-text *ngIf="form.get('email')?.touched && form.get('email')?.valid === false">
+            <p *ngIf="form.get('email')?.errors?.['required']">El Email es requerido</p>
+            <p *ngIf="form.get('email')?.valid===false">Email invalido</p>
+          </ion-text>
+          <ion-input formControlName="password" label="Contraseña *" type="password" fill="outline"
+            mode="md"></ion-input>
+          <ion-text *ngIf="form.get('password')?.touched && form.get('password')?.valid === false">
+            <p *ngIf="form.get('password')?.errors?.['required']">El Password es requerido</p>
+          </ion-text>
+          <ion-button type="submit">Ingresar</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
-
-
