@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>step1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>paso 1</h1>
+  <form [formGroup]="form" (ngSubmit)="avanzar()">
+    <ion-input formControlName="nombre" label="nombre"></ion-input>
+    <ion-button type="submit">Siguiente</ion-button>
+  </form>
+</ion-content>

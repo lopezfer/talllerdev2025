@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -14,7 +14,8 @@ export class CiudadPage implements OnInit {
   data: any;
   constructor(
     public activatedRoute: ActivatedRoute,
-    public db: DatabaseService
+    public db: DatabaseService,
+    //public cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class CiudadPage implements OnInit {
       .subscribe((res: any) => {
         console.log('ciudad recuperada', res);
         this.data = res;
+       //this.cdr.detectChanges();
       })
   }
 

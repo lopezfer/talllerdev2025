@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>step1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>paso 2</h1>
+  <form [formGroup]="form" (ngSubmit)="avanzar()">
+    <ion-input formControlName="email" label="email"></ion-input>
+    <ion-input formControlName="password" label="password"></ion-input>
+    <ion-button type="submit">Registrar usuario</ion-button>
+  </form>
+</ion-content>

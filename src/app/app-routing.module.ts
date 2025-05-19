@@ -35,6 +35,18 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'step1',
+    loadChildren: () => import('./pages/step1/step1.module').then( m => m.Step1PageModule)
+  },
+  {
+    path: 'step2',
+    loadChildren: () => import('./pages/step2/step2.module').then( m => m.Step2PageModule)
+  },
+  {
+    path: 'step3',
+    loadChildren: () => import('./pages/step3/step3.module').then( m => m.Step3PageModule)
+  },
 ];
 
 @NgModule({
