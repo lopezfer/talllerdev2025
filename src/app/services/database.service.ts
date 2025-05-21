@@ -13,7 +13,7 @@ export class DatabaseService {
     public firestore: AngularFirestore,
     private injector: Injector,
     private zone: NgZone
-  ) {}
+  ) { }
 
   // Lee un archivo local
   fetchLocalCollection(collection: string) {
@@ -106,4 +106,32 @@ export class DatabaseService {
     );
     return this.wrapInNgZone(raw$);
   }
+
+  getAllSubcollectionGroup(subcollection: string): Observable<any[]> {
+    const raw$ = runInInjectionContext(this.injector, () =>
+      this.firestore.collectionGroup(subcollection).valueChanges({ idField: 'id' })
+    );
+    return this.wrapInNgZone(raw$);
+  }
+
+  filterSubcollectionGroupByField(
+    subcollection: string,
+    field: string,
+    value: any
+  ): Observable<any[]> {
+    const raw$ = runInInjectionContext(this.injector, () =>
+      this.firestore
+        .collectionGroup(subcollection, ref => ref.where(field, '==', value))
+        .valueChanges({ idField: 'id' })
+    );
+    return this.wrapInNgZone(raw$);
+  }
+
+  /*
+  this.db.getAllSubcollectionGroup('menu').subscribe(console.log);
+
+  this.db.filterSubcollectionGroupByField('menu', 'name', 'Hamburguesa doble').subscribe(console.log);
+   */
+
+
 }
