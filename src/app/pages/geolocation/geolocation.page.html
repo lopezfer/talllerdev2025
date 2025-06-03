@@ -1,0 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>geolocation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="getCurrentPosition()">Leer la ubicación actual</ion-button>
+  <p>
+    {{ currentPosition | json }}
+  </p>
+</ion-content>

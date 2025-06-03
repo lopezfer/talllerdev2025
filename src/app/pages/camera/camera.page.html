@@ -1,0 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>camera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="takePicture()">
+    abrir cámara
+  </ion-button>
+  <img [src]="imagePreview" alt="">
+</ion-content>

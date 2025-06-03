@@ -59,6 +59,7 @@ export class MapPage implements OnInit {
 
   async getCurrentLocation() {
     try {
+     
       if ((window as any).Capacitor && (window as any).Capacitor.isNativePlatform()) {
         const permission = await Geolocation.requestPermissions();
         if (permission.location === 'denied') {

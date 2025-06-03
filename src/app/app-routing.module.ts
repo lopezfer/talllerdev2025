@@ -47,6 +47,14 @@ const routes: Routes = [
     path: 'step3',
     loadChildren: () => import('./pages/step3/step3.module').then( m => m.Step3PageModule)
   },
+  {
+    path: 'camera',
+    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
+  },
+  {
+    path: 'geolocation',
+    loadChildren: () => import('./pages/geolocation/geolocation.module').then( m => m.GeolocationPageModule)
+  },
 ];
 
 @NgModule({
