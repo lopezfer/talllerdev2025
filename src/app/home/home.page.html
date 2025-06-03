@@ -29,6 +29,7 @@
       <ion-col>
         <ion-button [routerLink]="'/camera'">Ir a camara</ion-button>
         <ion-button [routerLink]="'/geolocation'">Ir a geolocation</ion-button>
+        <ion-button [routerLink]="'/notifications'">Ir a notifications</ion-button>
         <ion-item *ngFor="let ciudad of ciudades" [href]="'/ciudad/'+ciudad.id">
           <ion-text>
             <h2>Ciudad: {{ciudad.name}}</h2>

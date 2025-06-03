@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular';
 export class AuthService {
 
   profile: any;
-
+  isLogued: any;
   constructor(
     private afAuth: AngularFireAuth,
     private firestore: AngularFirestore,
@@ -21,7 +21,7 @@ export class AuthService {
     private injector: Injector
   ) {
     const user = localStorage.getItem('profile');
-    if(user){
+    if (user) {
       this.profile = JSON.parse(user);
       this.getProfile(this.profile.id);
     }
@@ -36,17 +36,17 @@ export class AuthService {
             return runInInjectionContext(this.injector, () => {
               return this.firestore.collection('users').doc(uid).set(extraData)
                 .then(async () => {
-                    console.log('Usuario creado en Firestore', extraData);
-                    const toast = await this.toastCtrl.create({
+                  console.log('Usuario creado en Firestore', extraData);
+                  const toast = await this.toastCtrl.create({
                     message: 'Usuario creado exitosamente.',
                     duration: 2000,
                     color: 'success'
-                    });
-                    toast.present();
-                    this.router.navigate(['/login']);
-                    setTimeout(() => {
+                  });
+                  toast.present();
+                  this.router.navigate(['/login']);
+                  setTimeout(() => {
                     location.reload();
-                    }, 200);
+                  }, 200);
                 })
                 .catch(async error => {
                   console.error('Error al guardar datos en Firestore:', error);
@@ -120,10 +120,10 @@ export class AuthService {
   }
 
 
-/*   verifyIsLogued() {
+  verifyIsLogued() {
     let user = localStorage.getItem('user');
     this.isLogued = user ? true : false;
     return user ? true : false;
   }
- */
+
 }

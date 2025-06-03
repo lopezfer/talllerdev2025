@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'geolocation',
     loadChildren: () => import('./pages/geolocation/geolocation.module').then( m => m.GeolocationPageModule)
   },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
 ];
 
 @NgModule({
